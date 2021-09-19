@@ -1,0 +1,57 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <windows.h>
+
+*Syed Syab Ahmad Shah
+*Facebook Group == Learn Programming Languages
+*youtube channel == LearnToCode
+*Please like and share my skill
+
+using namespace std;
+int main()
+{
+	string word = "";
+	string test_word = "";
+	string str = "";
+	fstream Dictionary;
+	int position = 0;
+	bool found = false;
+	Dictionary.open("Dictionary.txt");
+	if(!Dictionary)
+	{
+		cout<<"ERROR: File Missing."<<endl;
+	}
+	cout<<"Dictionary Opend"<<endl;
+	cout<<"Search any Word to find: ";
+	cin>>str;
+	
+	position = 0;
+	
+	while(position <=str.length() - 4)
+	{
+		test_word = str.substr(position, 4);
+//		for(int i=0;i<20;i++)
+//		{
+//			char x=219;
+//			cout<<x;
+//			Sleep(100);
+//		}
+//		cout<<endl;
+		while(!Dictionary.eof())
+		{
+			Dictionary >> word;
+			if(word == test_word)
+			{
+				cout<<"Word Found: "<<test_word<<endl;
+				found = true;
+				break;
+			}
+		}
+		Dictionary.clear();
+		Dictionary.seekg(0,ios::beg);
+		position++;
+		found = false;
+	}
+	
+}
