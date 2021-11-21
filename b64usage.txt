@@ -1,0 +1,4 @@
+BYTE buf[] = "ABCD";
+std::string encoded = Base64::encode(buf, 4);
+// encoded = "QUJDRA=="
+std::vector<BYTE> decoded = Base64::decode(encoded);

@@ -2,7 +2,8 @@
 using namespace std;
 int main()
 {
-	for(char a = 65; a < 91; a++)
+	char a = 62;
+	for( a = 65; a < 91; a++)
 	{
 		cout<<a<<"  ";
 	}
